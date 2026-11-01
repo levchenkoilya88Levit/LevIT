@@ -1,0 +1,48 @@
+---
+title: Готові рішення для BAS (1С)
+section: services
+label: Готові рішення
+h1: Готові рішення для BAS (1С)
+lead: Перевірені обміни та модулі, які адаптуємо під вашу конфігурацію. Запуск швидший, ніж розробка з нуля, а вартість відома заздалегідь.
+crumbs:
+  - { title: "Наші послуги", url: "/poslugy/" }
+crumb: Готові рішення
+form_class: alt
+form_kind: Готове рішення
+form_title: Не знайшли потрібне рішення?
+form_text: Опишіть, що потрібно підключити або автоматизувати. Більшість інтеграцій робимо під задачу.
+---
+{%- assign sols = site.solutions | sort: "order" -%}
+{% include page-hero.html %}
+
+<section class="cat-section">
+  <div class="wrap">
+    <div class="filter" role="toolbar" aria-label="Категорії">
+      <button class="chip on" data-filter="all">Усі <span>{{ sols.size }}</span></button>
+      {%- for cat in site.data.solution_categories %}
+      {%- assign in_cat = sols | where: "category", cat.id %}
+      <button class="chip" data-filter="{{ cat.id }}">{{ cat.short }} <span>{{ in_cat.size }}</span></button>
+      {%- endfor %}
+    </div>
+
+    {%- for cat in site.data.solution_categories %}
+    {%- assign in_cat = sols | where: "category", cat.id %}
+    {%- if in_cat.size > 0 %}
+    <div class="cat-block" id="{{ cat.id }}" data-cat="{{ cat.id }}">
+      <div class="cat-head">
+        {% include icon.html name=cat.icon %}
+        <div><h2>{{ cat.title }}</h2><p>{{ cat.text }}</p></div>
+      </div>
+      <div class="s-grid">
+        {%- for s in in_cat %}{% include solution-card.html s=s %}{% endfor %}
+      </div>
+    </div>
+    {%- endif %}
+    {%- endfor %}
+
+    <div class="sol-foot">
+      <p>Вартість готового рішення залежить від вашої конфігурації та обсягу даних. Точну суму називаємо після короткої розмови.</p>
+      <a class="btn btn-main" href="#zayavka">Дізнатися вартість</a>
+    </div>
+  </div>
+</section>

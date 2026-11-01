@@ -1,0 +1,29 @@
+---
+title: Відгуки клієнтів LevIT
+section: reviews
+label: Відгуки
+h1: Відгуки клієнтів
+lead: Що кажуть про роботу з нами власники компаній і бухгалтери.
+crumbs: []
+crumb: Відгуки
+form_kind: Відгуки
+form_class: alt
+---
+{% include page-hero.html %}
+
+<section>
+  <div class="wrap">
+    {%- if site.data.reviews.size > 0 %}
+    <div class="rev-grid">
+      {%- for r in site.data.reviews %}{% include review-card.html r=r %}{% endfor %}
+    </div>
+    {%- else %}
+    <div class="empty">
+      {% include icon.html name="star" %}
+      <h2>Збираємо відгуки</h2>
+      <p>Скоро тут з’являться відгуки наших клієнтів. Хочете поговорити з тим, з ким ми вже працюємо? Попросіть — і ми з’єднаємо вас із клієнтом, який погодиться розповісти про досвід.</p>
+      <div class="hero-cta"><a class="btn btn-main" href="#zayavka">Залишити заявку</a></div>
+    </div>
+    {%- endif %}
+  </div>
+</section>

@@ -1,0 +1,84 @@
+---
+title: Наші послуги
+section: services
+label: Наші послуги
+h1: Усе, що потрібно вашій BAS (1С)
+lead: Ми чітко розділяємо два формати роботи. Готові рішення — це модулі з відомим обсягом, які адаптуємо під вашу базу. Супровід — постійна робота з вашою системою за годинами або абонементом.
+crumbs: []
+crumb: Наші послуги
+form_class: alt
+---
+{%- assign sols = site.solutions | sort: "order" -%}
+<section class="page-hero">
+  <div class="wrap">
+    {% include breadcrumbs.html %}
+    <p class="hero-label">{{ page.label }}</p>
+    <h1>{{ page.h1 }}</h1>
+    <p class="hero-sub">{{ page.lead }}</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="big-dir-grid">
+      <div class="big-dir">
+        <div class="big-dir-head">{% include icon.html name="box" %}<span class="pill">Фіксований обсяг</span></div>
+        <h2>Готові рішення</h2>
+        <p>Перевірені обміни та модулі для типових задач: маркетплейси, CRM, банки, ПРРО, доставка, склад. Ви заздалегідь знаєте, що отримаєте, скільки це коштує і коли запрацює.</p>
+        <ul class="check">
+          <li>Швидший запуск, ніж розробка з нуля</li>
+          <li>Адаптація під вашу конфігурацію</li>
+          <li>Супровід після запуску</li>
+        </ul>
+        <div class="big-dir-cats">
+          {%- for cat in site.data.solution_categories %}<a href="/poslugy/gotovi-rishennya/#{{ cat.id }}">{{ cat.short }}</a>{% endfor %}
+        </div>
+        <a class="btn btn-main" href="/poslugy/gotovi-rishennya/">Каталог рішень ({{ sols.size }})</a>
+      </div>
+      <div class="big-dir">
+        <div class="big-dir-head">{% include icon.html name="headset" %}<span class="pill">Погодинно / абонемент</span></div>
+        <h2>Супровід BAS (1С)</h2>
+        <p>Постійна робота з вашою обліковою системою: обслуговування, доробки під процеси, аудит, підтримка користувачів, оновлення та перехід з 1С на BAS.</p>
+        <ul class="check">
+          <li>Термінові питання — в пріоритеті</li>
+          <li>Контури Dev, Test і Prod для кожної зміни</li>
+          <li>Абонемент від 1 000 грн за годину</li>
+        </ul>
+        <div class="big-dir-cats">
+          {%- for s in site.data.support_services limit: 5 %}<a href="/poslugy/suprovid-bas/#{{ s.id }}">{{ s.title }}</a>{% endfor %}
+        </div>
+        <a class="btn btn-main" href="/poslugy/suprovid-bas/">Про супровід і ціни</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Що обрати?</h2>
+      <p>Не впевнені, який формат вам підходить? Опишіть задачу — підкажемо на 15-хвилинній зустрічі.</p>
+    </div>
+    <div class="table-wrap">
+      <table class="cmp">
+        <thead><tr><th></th><th>Готові рішення</th><th>Супровід BAS (1С)</th></tr></thead>
+        <tbody>
+          <tr><td>Коли підходить</td><td>Потрібно підключити конкретний сервіс або модуль</td><td>Потрібна постійна підтримка та розвиток системи</td></tr>
+          <tr><td>Обсяг робіт</td><td>Відомий заздалегідь</td><td>Визначається задачами місяця</td></tr>
+          <tr><td>Оплата</td><td>Фіксована вартість рішення</td><td>Разово за години або абонемент</td></tr>
+          <tr><td>Термін</td><td>Від кількох днів</td><td>Постійно, без обмеження</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <a class="servers-band" href="/servery/">
+      {% include icon.html name="server" %}
+      <span><b>Сервери для BAS (1С)</b><small>Оренда, адміністрування, резервне копіювання та віддалений доступ разом із партнером.</small></span>
+      <span class="s-more">Детальніше →</span>
+    </a>
+  </div>
+</section>

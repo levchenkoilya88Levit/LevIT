@@ -1,0 +1,8 @@
+{%- assign k = include.k -%}
+<a class="case-card" href="{{ k.url }}">
+  <span class="case-client">{{ k.client }}{% if k.industry %} · {{ k.industry }}{% endif %}</span>
+  <b>{{ k.title }}</b>
+  {%- if k.summary %}<p>{{ k.summary }}</p>{% endif %}
+  {%- if k.results %}<span class="case-res">{% for r in k.results limit: 2 %}<span><b>{{ r.value }}</b> {{ r.label }}</span>{% endfor %}</span>{% endif %}
+  <span class="s-more">Читати кейс →</span>
+</a>

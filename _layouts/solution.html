@@ -1,0 +1,75 @@
+---
+layout: default
+---
+{%- assign cat = site.data.solution_categories | where: "id", page.category | first -%}
+{%- assign sols = site.solutions | sort: "order" -%}
+<section class="page-hero sol-hero">
+  <div class="wrap sol-hero-grid">
+    <div>
+      <nav class="crumbs" aria-label="Навігація">
+        <a href="/">Головна</a><span>/</span><a href="/poslugy/">Наші послуги</a><span>/</span><a href="/poslugy/gotovi-rishennya/">Готові рішення</a><span>/</span><b>{{ page.title }}</b>
+      </nav>
+      {%- if cat %}<p class="hero-label"><a href="/poslugy/gotovi-rishennya/#{{ cat.id }}">{{ cat.title }}</a></p>{% endif %}
+      <h1>{{ page.h1 | default: page.title }}</h1>
+      <p class="hero-sub">{{ page.summary }}</p>
+      <div class="hero-cta">
+        <a class="btn btn-main" href="#zayavka">Дізнатися вартість під мою базу</a>
+        <a class="btn btn-line" href="/poslugy/gotovi-rishennya/">Усі готові рішення</a>
+      </div>
+    </div>
+    <aside class="sol-meta">
+      <span class="s-logo big" aria-hidden="true">{% if page.logo and page.logo != "" %}<img src="{{ page.logo }}" alt="">{% else %}{% if page.short and page.short != "" %}{{ page.short }}{% else %}{{ page.title | slice: 0, 2 }}{% endif %}{% endif %}</span>
+      <dl>
+        <div><dt>Орієнтовна вартість</dt><dd>{{ page.price | default: "за запитом" }}</dd></div>
+        {%- if page.term and page.term != "" %}<div><dt>Термін запуску</dt><dd>{{ page.term }}</dd></div>{% endif %}
+        {%- if page.systems %}<div><dt>Конфігурації</dt><dd class="chips">{% for x in page.systems %}<span>{{ x }}</span>{% endfor %}</dd></div>{% endif %}
+      </dl>
+    </aside>
+  </div>
+</section>
+
+<section class="sol-body">
+  <div class="wrap sol-body-grid">
+    <article class="prose">
+      {{ content }}
+    </article>
+    {%- if page.features %}
+    <aside class="sol-features">
+      <h3>Що вміє рішення</h3>
+      <ul class="check">{% for f in page.features %}<li>{{ f }}</li>{% endfor %}</ul>
+    </aside>
+    {%- endif %}
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Як ми підключаємо рішення</h2>
+      <p>Готовий модуль не ставимо «як є» — адаптуємо під вашу конфігурацію і перевіряємо до запуску.</p>
+    </div>
+    <ol class="steps">
+      <li><b>Знайомство</b><p>15 хвилин: розбираємо вашу задачу й конфігурацію.</p></li>
+      <li><b>Оцінка</b><p>Називаємо вартість і терміни під вашу базу.</p></li>
+      <li><b>Налаштування</b><p>Адаптуємо модуль на копії бази (Dev).</p></li>
+      <li><b>Перевірка</b><p>Тестуємо на ваших даних разом із вами (Test).</p></li>
+      <li><b>Запуск і супровід</b><p>Переносимо в робочу базу та стежимо за стабільністю.</p></li>
+    </ol>
+  </div>
+</section>
+
+{%- assign related = sols | where: "category", page.category -%}
+{%- assign shown = 0 -%}
+{%- if related.size > 1 %}
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Схожі рішення</h2>
+      <p><a class="link" href="/poslugy/gotovi-rishennya/">Усі готові рішення →</a></p>
+    </div>
+    <div class="s-grid">
+      {%- for s in related %}{% if s.url != page.url and shown < 3 %}{% assign shown = shown | plus: 1 %}{% include solution-card.html s=s %}{% endif %}{% endfor %}
+    </div>
+  </div>
+</section>
+{%- endif %}

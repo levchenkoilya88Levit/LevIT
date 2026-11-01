@@ -1,0 +1,88 @@
+---
+title: Про компанію LevIT
+section: about
+label: Про компанію
+h1: LevIT — команда, якій можна довірити облік
+lead: Ми супроводжуємо, доопрацьовуємо та інтегруємо BAS (1С) для українського бізнесу. Наша мета — щоб облікова система просто працювала, а ви займалися бізнесом.
+crumbs: []
+crumb: Про компанію
+form_kind: Про компанію
+form_class: alt
+---
+{%- assign c = site.data.company -%}
+<section class="page-hero">
+  <div class="wrap">
+    {% include breadcrumbs.html %}
+    <p class="hero-label">{{ page.label }}</p>
+    <h1>{{ page.h1 }}</h1>
+    <p class="hero-sub">{{ page.lead }}</p>
+    <div class="facts">
+      {%- for f in c.facts %}<div><b>{{ f.value }}</b><span>{{ f.label }}</span></div>{% endfor %}
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap about-grid">
+    <div class="prose">
+      {%- comment -%} Історія компанії — відредагуйте текст нижче {%- endcomment -%}
+      <h2>Наша історія</h2>
+      <p>LevIT виросла з практики щоденного супроводу облікових систем. Ми бачили, як компанії залежать від одного програміста, як доробки ламають те, що вже працювало, і як бухгалтерія витрачає години на ручне перенесення даних.</p>
+      <p>Тому ми побудували роботу інакше: кожна зміна проходить окремі контури розробки й тестування, усе фіксується у сховищі конфігурації та документується. Клієнт не залежить від конкретного виконавця — і завжди знає, що відбувається з його базою.</p>
+      <h2>Що ми робимо</h2>
+      <p>Супровід і доробка BAS (1С), інтеграції з маркетплейсами, банками, CRM і службами доставки, аудит конфігурацій, перехід з 1С на BAS, робота з ТЗД. Разом із партнером — сервери для облікових систем.</p>
+    </div>
+    <aside class="about-card">
+      <img src="/assets/img/logo.png" alt="" width="120" height="88">
+      <h3>{{ c.name }}</h3>
+      <p>{{ c.tagline }}</p>
+      <dl class="case-dl">
+        <dt>Місто</dt><dd>{{ c.city }}</dd>
+        <dt>Адреса</dt><dd>{{ c.address }}</dd>
+        <dt>Телефон</dt><dd><a href="tel:{{ c.phone_link }}">{{ c.phone }}</a></dd>
+        <dt>Email</dt><dd><a href="mailto:{{ c.email }}">{{ c.email }}</a></dd>
+      </dl>
+    </aside>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Чотири принципи нашої роботи</h2>
+      <p>Чому з нами ваш бізнес працює стабільніше.</p>
+    </div>
+    {% include principles.html %}
+  </div>
+</section>
+
+{%- if site.data.team.size > 0 %}
+<section>
+  <div class="wrap">
+    <div class="sec-head"><h2>Команда</h2><p>Люди, які працюють з вашою базою.</p></div>
+    <div class="team-grid">
+      {%- for m in site.data.team %}
+      <div class="member">
+        {%- if m.photo %}<img src="{{ m.photo }}" alt="{{ m.name }}" loading="lazy">{% else %}<span class="rev-av big" aria-hidden="true">{{ m.name | slice: 0, 1 }}</span>{% endif %}
+        <b>{{ m.name }}</b><small>{{ m.role }}</small>{% if m.text %}<p>{{ m.text }}</p>{% endif %}
+      </div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+<section{% if site.data.team.size > 0 %} class="alt"{% endif %}>
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Чому нам довіряють</h2>
+      <p>Принципи, які захищають ваш облік і ваш бюджет.</p>
+    </div>
+    <div class="adv-grid">
+      <div class="adv"><h3>Незалежність від виконавця</h3><p>Зміни у сховищі конфігурації, архітектура задокументована. Систему зрозуміє будь-який фахівець.</p></div>
+      <div class="adv"><h3>Безпечні зміни</h3><p>Контури Dev, Test і Prod: у робочу базу потрапляє лише перевірене.</p></div>
+      <div class="adv"><h3>Прозорий бюджет</h3><p>Оцінка до початку робіт, відкриті ціни на годину та абонементи.</p></div>
+    </div>
+    <div class="hero-cta"><a class="btn btn-line" href="/keisy/">Наші кейси</a><a class="btn btn-line" href="/vidguky/">Відгуки клієнтів</a></div>
+  </div>
+</section>

@@ -1,0 +1,146 @@
+---
+title: Супровід BAS (1С) — обслуговування, доробки, підтримка
+section: services
+label: Супровід BAS (1С)
+h1: Супровід BAS (1С)
+lead: Беремо облікову систему на повний супровід — від аудиту та технічного завдання до щоденної підтримки користувачів. Разова оплата або щомісячний абонемент.
+crumbs:
+  - { title: "Наші послуги", url: "/poslugy/" }
+crumb: Супровід BAS (1С)
+form_kind: Супровід BAS
+form_class: alt
+---
+<section class="page-hero">
+  <div class="wrap">
+    {% include breadcrumbs.html %}
+    <p class="hero-label">{{ page.label }}</p>
+    <h1>{{ page.h1 }}</h1>
+    <p class="hero-sub">{{ page.lead }}</p>
+    <div class="hero-cta">
+      <a class="btn btn-main" href="#zayavka">Обговорити супровід</a>
+      <a class="btn btn-line" href="#tsiny">Ціни та абонементи</a>
+    </div>
+  </div>
+</section>
+
+<!-- in-page nav -->
+<div class="subnav">
+  <div class="wrap">
+    <a href="#napriamy">Напрями</a>
+    <a href="#pryntsypy">Принципи</a>
+    <a href="#standarty">Стандарти</a>
+    <a href="#tsiny">Ціни</a>
+    <a href="#etapy">Етапи</a>
+    <a href="#faq">Питання</a>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="napriamy">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Напрями супроводу</h2>
+      <p>Повний цикл роботи з BAS. Можна обрати один напрям або все разом в абонементі.</p>
+    </div>
+    <div class="svc-list">
+      {%- for s in site.data.support_services %}
+      <article class="svc-row" id="{{ s.id }}">
+        <div class="svc-row-title">{% include icon.html name=s.icon %}<h3>{{ s.title }}</h3></div>
+        <p>{{ s.text }}</p>
+        {%- if s.points %}<ul class="check">{% for p in s.points %}<li>{{ p }}</li>{% endfor %}</ul>{% endif %}
+      </article>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- PRINCIPLES 4R -->
+<section class="alt" id="pryntsypy">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Чотири принципи нашої роботи</h2>
+      <p>Чому з нами ваш бізнес працює стабільніше.</p>
+    </div>
+    {% include principles.html %}
+  </div>
+</section>
+
+<!-- STANDARDS -->
+<section id="standarty">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Стандарти розробки</h2>
+      <p>Працюємо за сучасними правилами, які захищають облік від помилок, а вас від залежності від конкретного виконавця.</p>
+    </div>
+    <div class="contours">
+      <div class="contour"><span class="tag">Dev</span><h3>Розробка</h3><p>Зміни вносимо в окрему копію бази. Користувачі працюють у звичному режимі.</p></div>
+      <div class="contour"><span class="tag">Test</span><h3>Тестування</h3><p>Перевіряємо нове на реальних сценаріях і контролюємо, щоб не зачепити інші механізми.</p></div>
+      <div class="contour"><span class="tag">Prod</span><h3>Робоча база</h3><p>Переносимо тільки перевірені зміни. Кожну можна відстежити й за потреби відкотити.</p></div>
+    </div>
+    <div class="adv-grid">
+      <div class="adv"><h3>Швидка реакція</h3><p>Питання, що зупиняють роботу підприємства, вирішуємо в пріоритетному порядку.</p></div>
+      <div class="adv"><h3>Версіонування</h3><p>Усі зміни зберігаються у сховищі конфігурації: видно, хто, що й коли змінив.</p></div>
+      <div class="adv"><h3>Документація</h3><p>Описуємо архітектуру та ведемо карту доробок вашої конфігурації.</p></div>
+      <div class="adv"><h3>Аналіз і ТЗ</h3><p>Складаємо технічне завдання відповідно до ваших потреб і з урахуванням існуючих механізмів.</p></div>
+      <div class="adv"><h3>Підтримка та оновлення</h3><p>Допомагаємо користувачам і контролюємо вихід оновлень.</p></div>
+      <div class="adv"><h3>Рівень сервісу</h3><p>Не потрібно знати терміни чи правильно формулювати задачу. Ми розберемося й пояснимо.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICES -->
+<section class="alt" id="tsiny">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Ціни</h2>
+      <p>Разова оплата або щомісячний абонемент. Чим більший обсяг, тим нижча вартість години.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Формат</th><th>Годин на місяць</th><th>Вартість</th><th>Ціна години</th></tr></thead>
+        <tbody>
+          <tr><td>Разова робота, без абонементу</td><td>за фактом</td><td class="num">1 500 грн</td><td class="rate">1 500 грн</td></tr>
+          <tr><td>Абонемент</td><td>5</td><td class="num">6 999 грн</td><td class="rate">1 400 грн</td></tr>
+          <tr><td>Абонемент</td><td>15</td><td class="num">19 499 грн</td><td class="rate">1 300 грн</td></tr>
+          <tr><td>Абонемент</td><td>25</td><td class="num">29 999 грн</td><td class="rate">1 200 грн</td></tr>
+          <tr class="best"><td>Абонемент</td><td>80</td><td class="num">79 999 грн</td><td class="rate"><b>1 000 грн</b></td></tr>
+          <tr><td>Індивідуальні умови</td><td>за домовленістю</td><td class="num">обговорюється</td><td class="rate">обговорюється</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="price-note">Перед початком робіт оцінюємо обсяг і погоджуємо бюджет. Допоможемо обрати формат, який буде найвигіднішим саме для вашої компанії.</p>
+  </div>
+</section>
+
+<!-- STEPS -->
+<section id="etapy">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Як почати співпрацю</h2>
+      <p>Від заявки до стабільної роботи системи.</p>
+    </div>
+    <ol class="steps">
+      <li><b>Заявка</b><p>Залишаєте заявку або телефонуєте нам.</p></li>
+      <li><b>Знайомство, 15 хвилин</b><p>Онлайн у Zoom / Google Meet або телефоном. Обговорюємо задачі.</p></li>
+      <li><b>Аналіз і оцінка</b><p>Вивчаємо систему, складаємо ТЗ, погоджуємо обсяг і бюджет.</p></li>
+      <li><b>Виконання</b><p>Розробка й тестування окремо від робочої бази, перенесення в Prod.</p></li>
+      <li><b>Супровід</b><p>Підтримка користувачів і контроль оновлень.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="alt" id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Часті питання</h2>
+      <p>Відповіді на питання, які нам ставлять найчастіше.</p>
+    </div>
+    <div class="faq-grid">
+      <div><h3>Ми не знаємо, як правильно сформулювати задачу</h3><p>Це не потрібно. Опишіть своїми словами, що заважає працювати. Ми проаналізуємо процес і складемо технічне завдання самі.</p></div>
+      <div><h3>Чи не зламає доробка те, що вже працює?</h3><p>Ми розділяємо контури Dev, Test і Prod. У робочу базу потрапляють лише перевірені зміни.</p></div>
+      <div><h3>Після попереднього програміста ніхто не розуміє, що в базі</h3><p>Починаємо з аудиту: розбираємо доробки, документуємо архітектуру та складаємо карту змін.</p></div>
+      <div><h3>Як формується вартість?</h3><p>Разова година коштує 1 500 грн, за абонементом від 1 000 грн. Вартість готових рішень розраховуємо індивідуально.</p></div>
+    </div>
+  </div>
+</section>

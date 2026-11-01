@@ -1,0 +1,31 @@
+---
+title: Кейси — проєкти LevIT з BAS (1С)
+section: cases
+label: Кейси
+h1: Кейси
+lead: Реальні задачі наших клієнтів — що було до, що ми зробили та що змінилось для бізнесу.
+crumbs: []
+crumb: Кейси
+form_kind: Кейси
+form_title: Схожа задача?
+form_text: Розкажіть про свою ситуацію — підкажемо, як ми вирішували подібне.
+---
+{%- assign cases = site.cases | sort: "date" | reverse -%}
+{% include page-hero.html %}
+
+<section>
+  <div class="wrap">
+    {%- if cases.size > 0 %}
+    <div class="case-grid">
+      {%- for k in cases %}{% include case-card.html k=k %}{% endfor %}
+    </div>
+    {%- else %}
+    <div class="empty">
+      {% include icon.html name="briefcase" %}
+      <h2>Кейси готуються до публікації</h2>
+      <p>Ми узгоджуємо з клієнтами, якими деталями можна поділитися. Поки що розповімо про схожі проєкти особисто на 15-хвилинній зустрічі.</p>
+      <div class="hero-cta"><a class="btn btn-main" href="#zayavka">Записатися на зустріч</a><a class="btn btn-line" href="/poslugy/gotovi-rishennya/">Готові рішення</a></div>
+    </div>
+    {%- endif %}
+  </div>
+</section>

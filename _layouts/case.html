@@ -1,0 +1,41 @@
+---
+layout: default
+---
+<section class="page-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Навігація">
+      <a href="/">Головна</a><span>/</span><a href="/keisy/">Кейси</a><span>/</span><b>{{ page.title }}</b>
+    </nav>
+    <p class="hero-label">{{ page.client }}{% if page.industry %} · {{ page.industry }}{% endif %}</p>
+    <h1>{{ page.title }}</h1>
+    {%- if page.summary %}<p class="hero-sub">{{ page.summary }}</p>{% endif %}
+    {%- if page.results %}
+    <div class="facts case-facts">
+      {%- for r in page.results %}<div><b>{{ r.value }}</b><span>{{ r.label }}</span></div>{% endfor %}
+    </div>
+    {%- endif %}
+  </div>
+</section>
+
+<section class="sol-body">
+  <div class="wrap sol-body-grid">
+    <article class="prose">
+      {{ content }}
+    </article>
+    <aside class="sol-features">
+      <h3>Коротко</h3>
+      <dl class="case-dl">
+        {%- if page.client %}<dt>Клієнт</dt><dd>{{ page.client }}</dd>{% endif %}
+        {%- if page.industry %}<dt>Галузь</dt><dd>{{ page.industry }}</dd>{% endif %}
+        {%- if page.system %}<dt>Система</dt><dd>{{ page.system }}</dd>{% endif %}
+        {%- if page.duration %}<dt>Термін</dt><dd>{{ page.duration }}</dd>{% endif %}
+      </dl>
+      {%- if page.solutions %}
+      <h3 class="mt">Використані рішення</h3>
+      <ul class="plain">
+        {%- for slug in page.solutions %}{% assign s = site.solutions | where_exp: "x", "x.url contains slug" | first %}{% if s %}<li><a href="{{ s.url }}">{{ s.title }}</a></li>{% endif %}{% endfor %}
+      </ul>
+      {%- endif %}
+    </aside>
+  </div>
+</section>

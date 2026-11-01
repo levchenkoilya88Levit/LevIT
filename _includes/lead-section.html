@@ -1,0 +1,37 @@
+{%- assign c = site.data.company -%}
+{%- assign kind = page.form_kind | default: "Заявка" -%}
+{%- if page.collection == "solutions" %}{% assign kind = "Рішення: " | append: page.title %}{% endif -%}
+<section id="zayavka" class="{{ include.class }}">
+  <div class="wrap contact-grid">
+    <div class="form lead-box">
+      <form class="lead-form" data-kind="{{ kind }}" novalidate>
+        <h2>{{ page.form_title | default: "Залишити заявку" }}</h2>
+        <p>{{ page.form_text | default: "Зв’яжемося з вами, обговоримо задачі та розрахуємо вартість робіт." }}</p>
+        <div class="fmt" role="radiogroup" aria-label="Формат знайомства">
+          <label><input type="radio" name="format" value="Онлайн-зустріч 15 хв" checked><span><b>Онлайн-зустріч</b><span>15 хвилин, Zoom або Google Meet</span></span></label>
+          <label><input type="radio" name="format" value="Дзвінок"><span><b>Дзвінок</b><span>Передзвонимо й розрахуємо вартість</span></span></label>
+        </div>
+        <div class="fields">
+          <div class="field"><label for="fName">Ім’я</label><input id="fName" name="name" autocomplete="name" required><span class="err">Вкажіть, як до вас звертатися</span></div>
+          <div class="field"><label for="fPhone">Телефон</label><input id="fPhone" name="phone" type="tel" autocomplete="tel" placeholder="+38 (0__) ___-__-__" required><span class="err">Вкажіть номер телефону</span></div>
+          <div class="field"><label for="fCompany">Компанія</label><input id="fCompany" name="company" autocomplete="organization"></div>
+          <div class="field"><label for="fRole">Посада</label><select id="fRole" name="role"><option>Власник / керівник</option><option>Бухгалтер</option><option>Інше</option></select></div>
+          <div class="field full"><label for="fMsg">Опис задачі (необов’язково)</label><textarea id="fMsg" name="message"></textarea></div>
+        </div>
+        <div class="form-foot">
+          <button class="btn btn-main" type="submit">Надіслати заявку</button>
+          <p>Натискаючи кнопку, ви погоджуєтесь на обробку контактних даних для зв’язку з вами.</p>
+        </div>
+      </form>
+      <div class="done" role="status"><h3>Дякуємо, заявку отримано</h3><p>Зв’яжемося з вами найближчим часом. Термінове питання? <a href="tel:{{ c.phone_link }}"><b>{{ c.phone }}</b></a></p></div>
+    </div>
+    <div class="contacts">
+      <h3>Контакти</h3>
+      <a class="c-item" href="tel:{{ c.phone_link }}"><small>Телефон</small><b>{{ c.phone }}</b></a>
+      <a class="c-item" href="https://t.me/{{ c.telegram }}" target="_blank" rel="noopener"><small>Telegram</small><b>@{{ c.telegram }}</b></a>
+      <a class="c-item" href="mailto:{{ c.email }}"><small>Email</small><b>{{ c.email }}</b></a>
+      <a class="c-item" href="{{ c.map_link }}" target="_blank" rel="noopener"><small>Адреса</small><b>{{ c.address }}</b></a>
+      {%- if c.hours != "" %}<div class="c-item"><small>Графік</small><b>{{ c.hours }}</b></div>{% endif %}
+    </div>
+  </div>
+</section>

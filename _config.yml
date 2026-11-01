@@ -1,0 +1,32 @@
+# Налаштування сайту LevIT (Jekyll, збирається GitHub Pages автоматично)
+title: LevIT
+description: Супровід, доробка, інтеграції та аудит BAS (1С) для українського бізнесу.
+url: https://levit.com.ua
+baseurl: ""
+lang: uk
+
+markdown: kramdown
+kramdown:
+  input: GFM
+
+collections:
+  solutions:            # Готові рішення: файли в папці _solutions
+    output: true
+    permalink: /poslugy/gotovi-rishennya/:name/
+  cases:                # Кейси: файли в папці _cases
+    output: true
+    permalink: /keisy/:name/
+
+defaults:
+  - scope: { path: "", type: solutions }
+    values: { layout: solution, form_class: alt }
+  - scope: { path: "", type: cases }
+    values: { layout: case, form_class: alt }
+  - scope: { path: "" }
+    values: { layout: default }
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor

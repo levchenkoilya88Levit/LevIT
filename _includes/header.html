@@ -1,0 +1,63 @@
+{%- assign c = site.data.company -%}
+{%- assign sols = site.solutions | sort: "order" -%}
+<header id="top">
+  <div class="wrap nav">
+    <a class="brand" href="/" aria-label="LevIT, головна">
+      <img src="/assets/img/logo.png" alt="" width="49" height="36">
+      <span>LevIT</span>
+    </a>
+    <nav aria-label="Головне меню">
+      <ul class="nav-links">
+        <li class="has-mega">
+          <button class="nav-drop{% if page.section == 'services' %} on{% endif %}" aria-expanded="false" aria-controls="mega">Наші послуги {% include icon.html name="chevron" %}</button>
+          <div class="mega" id="mega">
+            <div class="wrap mega-grid">
+              <div class="mega-col">
+                <a class="mega-head" href="/poslugy/gotovi-rishennya/">{% include icon.html name="box" %}<span><b>Готові рішення</b><small>Модулі та обміни з відомим обсягом і ціною</small></span></a>
+                <ul>
+                  {%- for cat in site.data.solution_categories %}
+                  <li><a href="/poslugy/gotovi-rishennya/#{{ cat.id }}">{{ cat.title }}</a></li>
+                  {%- endfor %}
+                </ul>
+                <a class="mega-all" href="/poslugy/gotovi-rishennya/">Усі готові рішення →</a>
+              </div>
+              <div class="mega-col">
+                <a class="mega-head" href="/poslugy/suprovid-bas/">{% include icon.html name="headset" %}<span><b>Супровід BAS (1С)</b><small>Обслуговування, доробки та підтримка за годинами</small></span></a>
+                <ul class="two">
+                  {%- for s in site.data.support_services %}
+                  <li><a href="/poslugy/suprovid-bas/#{{ s.id }}">{{ s.title }}</a></li>
+                  {%- endfor %}
+                </ul>
+                <a class="mega-all" href="/poslugy/suprovid-bas/#tsiny">Ціни та абонементи →</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li><a href="/servery/"{% if page.section == 'servers' %} class="on"{% endif %}>Сервери</a></li>
+        <li><a href="/keisy/"{% if page.section == 'cases' %} class="on"{% endif %}>Кейси</a></li>
+        <li><a href="/vidguky/"{% if page.section == 'reviews' %} class="on"{% endif %}>Відгуки</a></li>
+        <li><a href="/pro-kompaniyu/"{% if page.section == 'about' %} class="on"{% endif %}>Про компанію</a></li>
+        <li><a href="/kontakty/"{% if page.section == 'contacts' %} class="on"{% endif %}>Контакти</a></li>
+      </ul>
+    </nav>
+    <div class="nav-right">
+      <a class="nav-phone" href="tel:{{ c.phone_link }}">{{ c.phone }}</a>
+      <a class="btn btn-main" href="#zayavka">Залишити заявку</a>
+      <button class="burger" aria-label="Меню" aria-expanded="false" aria-controls="mmenu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <nav class="mobile-menu" id="mmenu" aria-label="Мобільне меню">
+    <details>
+      <summary>Наші послуги</summary>
+      <a href="/poslugy/">Огляд послуг</a>
+      <a href="/poslugy/gotovi-rishennya/">Готові рішення</a>
+      <a href="/poslugy/suprovid-bas/">Супровід BAS (1С)</a>
+    </details>
+    <a href="/servery/">Сервери</a>
+    <a href="/keisy/">Кейси</a>
+    <a href="/vidguky/">Відгуки</a>
+    <a href="/pro-kompaniyu/">Про компанію</a>
+    <a href="/kontakty/">Контакти</a>
+    <a href="tel:{{ c.phone_link }}">{{ c.phone }}</a>
+  </nav>
+</header>

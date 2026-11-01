@@ -1,0 +1,8 @@
+<section class="page-hero">
+  <div class="wrap">
+    {% include breadcrumbs.html %}
+    {%- if page.label %}<p class="hero-label">{{ page.label }}</p>{% endif %}
+    <h1>{{ page.h1 | default: page.title }}</h1>
+    {%- if page.lead %}<p class="hero-sub">{{ page.lead }}</p>{% endif %}
+  </div>
+</section>

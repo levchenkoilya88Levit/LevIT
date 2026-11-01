@@ -1,0 +1,60 @@
+{%- assign c = site.data.company -%}
+{%- assign sols = site.solutions | sort: "order" -%}
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a class="brand" href="/"><img src="/assets/img/logo.png" alt="" width="49" height="36"><span>LevIT</span></a>
+        <p>{{ c.tagline }}. {{ c.city }}.</p>
+        <a class="btn btn-main" href="#zayavka">Залишити заявку</a>
+      </div>
+      <div class="foot-col">
+        <h4><a href="/poslugy/gotovi-rishennya/">Готові рішення</a></h4>
+        {%- for cat in site.data.solution_categories %}
+        {%- assign in_cat = sols | where: "category", cat.id %}
+        {%- if in_cat.size > 0 %}
+        <h5>{{ cat.short }}</h5>
+        <ul>{% for s in in_cat %}<li><a href="{{ s.url }}">{{ s.title }}</a></li>{% endfor %}</ul>
+        {%- endif %}
+        {%- endfor %}
+      </div>
+      <div class="foot-col">
+        <h4><a href="/poslugy/suprovid-bas/">Супровід BAS (1С)</a></h4>
+        <ul>
+          {%- for s in site.data.support_services %}
+          <li><a href="/poslugy/suprovid-bas/#{{ s.id }}">{{ s.title }}</a></li>
+          {%- endfor %}
+          <li><a href="/poslugy/suprovid-bas/#tsiny">Ціни та абонементи</a></li>
+        </ul>
+        <h4 class="mt"><a href="/servery/">Сервери</a></h4>
+      </div>
+      <div class="foot-col">
+        <h4>Компанія</h4>
+        <ul>
+          <li><a href="/pro-kompaniyu/">Про компанію</a></li>
+          <li><a href="/keisy/">Кейси</a></li>
+          <li><a href="/vidguky/">Відгуки</a></li>
+          <li><a href="/poslugy/">Наші послуги</a></li>
+          <li><a href="/kontakty/">Контакти</a></li>
+        </ul>
+        <h4 class="mt">Контакти</h4>
+        <ul class="foot-contacts">
+          <li><a href="tel:{{ c.phone_link }}">{{ c.phone }}</a></li>
+          <li><a href="https://t.me/{{ c.telegram }}" target="_blank" rel="noopener">Telegram @{{ c.telegram }}</a></li>
+          <li><a href="mailto:{{ c.email }}">{{ c.email }}</a></li>
+          <li>{{ c.address }}</li>
+          {%- if c.hours != "" %}<li>{{ c.hours }}</li>{% endif %}
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p>© {{ site.time | date: "%Y" }} {{ c.name }}. {{ c.tagline }}.</p>
+      <a href="#top">Нагору ↑</a>
+    </div>
+  </div>
+</footer>
+
+<div class="mbar">
+  <a class="btn btn-line" href="tel:{{ c.phone_link }}">Подзвонити</a>
+  <a class="btn btn-main" href="#zayavka">Заявка</a>
+</div>

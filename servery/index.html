@@ -1,0 +1,122 @@
+---
+title: Сервери для BAS (1С) — оренда та адміністрування
+section: servers
+label: Сервери
+h1: Сервери для BAS (1С)
+lead: Надійна інфраструктура для облікової системи — разом із нашим партнером. Ми відповідаємо за BAS, партнер — за сервер. Ви отримуєте одне вікно для всіх питань.
+crumbs: []
+crumb: Сервери
+form_class: alt
+form_kind: Сервери
+form_title: Підібрати сервер
+form_text: Розкажіть, скільки користувачів працює в базі та які у вас конфігурації — запропонуємо оптимальний варіант.
+---
+{%- assign d = site.data.servers -%}
+<section class="page-hero">
+  <div class="wrap">
+    {% include breadcrumbs.html %}
+    <p class="hero-label">{{ page.label }}</p>
+    <h1>{{ page.h1 }}</h1>
+    <p class="hero-sub">{{ page.lead }}</p>
+    <div class="hero-cta">
+      <a class="btn btn-main" href="#zayavka">Підібрати сервер</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Що входить</h2>
+      <p>Від оренди обладнання до щоденних резервних копій — щоб база була доступна завжди.</p>
+    </div>
+    <div class="svc-grid four">
+      {%- for s in d.services %}
+      <article class="svc">{% include icon.html name=s.icon %}<h3>{{ s.title }}</h3><p>{{ s.text }}</p>{% if s.price %}<span class="svc-price">{{ s.price }}</span>{% endif %}</article>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Навіщо окремий сервер</h2>
+      <p>Коли база росте, а користувачів стає більше, звичайний офісний комп’ютер перестає справлятися.</p>
+    </div>
+    <div class="aud-grid">
+      <div class="aud-col">
+        <h3>Без сервера</h3>
+        <p>Типові проблеми</p>
+        <ul class="cross">
+          <li>База гальмує, коли працює кілька людей</li>
+          <li>Немає регулярних резервних копій</li>
+          <li>Доступ лише з офісу</li>
+          <li>Залежність від одного комп’ютера</li>
+        </ul>
+      </div>
+      <div class="aud-col">
+        <h3>З сервером</h3>
+        <p>Що змінюється</p>
+        <ul class="check">
+          <li>Стабільна швидкість для всіх користувачів</li>
+          <li>Копії бази за розкладом</li>
+          <li>Безпечна робота з будь-якого місця</li>
+          <li>Обладнання обслуговують фахівці</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+{%- if d.plans.size > 0 %}
+<section>
+  <div class="wrap">
+    <div class="sec-head"><h2>Тарифи</h2><p>Конфігурацію можна змінити в будь-який момент.</p></div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Тариф</th><th>Користувачі</th><th>CPU</th><th>RAM</th><th>Диск</th><th>Вартість</th></tr></thead>
+        <tbody>{% for p in d.plans %}<tr><td><b>{{ p.name }}</b></td><td>{{ p.users }}</td><td>{{ p.cpu }}</td><td>{{ p.ram }}</td><td>{{ p.disk }}</td><td class="num">{{ p.price }}</td></tr>{% endfor %}</tbody>
+      </table>
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+<section{% if d.plans.size > 0 %} class="alt"{% endif %}>
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Як ми працюємо разом із партнером</h2>
+      <p>Вам не потрібно розбиратися, хто за що відповідає.</p>
+    </div>
+    <div class="split">
+      <div class="split-col">
+        <span class="tag">LevIT</span>
+        <h3>Облікова система</h3>
+        <ul class="check">
+          <li>Розгортання й налаштування BAS на сервері</li>
+          <li>Перенесення баз</li>
+          <li>Оновлення та доробки</li>
+          <li>Підтримка користувачів</li>
+        </ul>
+      </div>
+      <div class="split-col">
+        <span class="tag yellow">{% if d.partner.name != "" %}{{ d.partner.name }}{% else %}Партнер{% endif %}</span>
+        <h3>Інфраструктура</h3>
+        <ul class="check">
+          <li>Сервер і дата-центр</li>
+          <li>Мережа та безпека</li>
+          <li>Моніторинг і резервні копії</li>
+          <li>Апаратна частина</li>
+        </ul>
+      </div>
+    </div>
+    {%- if d.partner.name != "" %}
+    <div class="partner">
+      {%- if d.partner.logo != "" %}<img src="{{ d.partner.logo }}" alt="{{ d.partner.name }}" height="40">{% endif %}
+      <p><b>{{ d.partner.name }}</b>{% if d.partner.text != "" %} — {{ d.partner.text }}{% endif %}</p>
+      {%- if d.partner.link != "" %}<a class="link" href="{{ d.partner.link }}" target="_blank" rel="noopener">Сайт партнера →</a>{% endif %}
+    </div>
+    {%- endif %}
+  </div>
+</section>
