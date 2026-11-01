@@ -1,5 +1,6 @@
 {%- assign r = include.r -%}
 <figure class="rev">
+  {%- if r.example %}<span class="ex-badge">Приклад відгуку</span>{% endif %}
   <blockquote>{{ r.text }}</blockquote>
   <figcaption>
     {%- if r.photo %}<img src="{{ r.photo }}" alt="" width="48" height="48" loading="lazy">{% else %}<span class="rev-av" aria-hidden="true">{{ r.name | slice: 0, 1 }}</span>{% endif %}

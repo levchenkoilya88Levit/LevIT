@@ -6,6 +6,7 @@ layout: default
     <nav class="crumbs" aria-label="Навігація">
       <a href="/">Головна</a><span>/</span><a href="/keisy/">Кейси</a><span>/</span><b>{{ page.title }}</b>
     </nav>
+    {% if page.example %}<p class="ex-note"><span class="ex-badge">Приклад</span> Це демонстраційний кейс, щоб показати формат. Реальні кейси з’являться найближчим часом.</p>{% endif %}
     <p class="hero-label">{{ page.client }}{% if page.industry %} · {{ page.industry }}{% endif %}</p>
     <h1>{{ page.title }}</h1>
     {%- if page.summary %}<p class="hero-sub">{{ page.summary }}</p>{% endif %}

@@ -1,5 +1,6 @@
 {%- assign k = include.k -%}
 <a class="case-card" href="{{ k.url }}">
+  {% if k.example %}<span class="ex-badge">Приклад</span>{% endif %}
   <span class="case-client">{{ k.client }}{% if k.industry %} · {{ k.industry }}{% endif %}</span>
   <b>{{ k.title }}</b>
   {%- if k.summary %}<p>{{ k.summary }}</p>{% endif %}
