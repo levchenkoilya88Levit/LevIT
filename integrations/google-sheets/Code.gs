@@ -136,15 +136,24 @@ function notify_(l) {
 /** 1) Напишите своему боту в Telegram любое сообщение, 2) запустите эту функцию — chat id появится в журнале выполнения */
 function findMyChatId() {
   if (!CONFIG.TELEGRAM_TOKEN) throw new Error('Сначала вставьте TELEGRAM_TOKEN в CONFIG');
-  const r = JSON.parse(UrlFetchApp.fetch('https://api.telegram.org/bot' + CONFIG.TELEGRAM_TOKEN + '/getUpdates').getContentText());
+  const api = m => JSON.parse(UrlFetchApp.fetch('https://api.telegram.org/bot' + CONFIG.TELEGRAM_TOKEN + '/' + m, { muteHttpExceptions: true }).getContentText());
+
+  const me = api('getMe');
+  if (!me.ok) { console.log('Ключ бота не подходит: ' + me.description + '. Скопируйте токен у @BotFather ещё раз.'); return; }
+  console.log('Бот: @' + me.result.username + '  →  откройте https://t.me/' + me.result.username + ' , нажмите Start и напишите любое сообщение');
+
+  const wh = api('getWebhookInfo');
+  if (wh.ok && wh.result.url) { api('deleteWebhook'); console.log('У бота был подключён webhook — отключили его.'); }
+
+  const r = api('getUpdates');
   const chats = {};
   (r.result || []).forEach(u => {
-    const m = u.message || u.channel_post || u.my_chat_member;
-    if (m && m.chat) chats[m.chat.id] = (m.chat.title || [m.chat.first_name, m.chat.last_name].join(' ')).trim();
+    const m = u.message || u.edited_message || u.channel_post || u.my_chat_member;
+    if (m && m.chat) chats[m.chat.id] = (m.chat.title || [m.chat.first_name, m.chat.last_name].filter(Boolean).join(' ')).trim();
   });
   const ids = Object.keys(chats);
-  if (!ids.length) { console.log('Чатов не найдено. Напишите боту любое сообщение и запустите функцию ещё раз.'); return; }
-  ids.forEach(id => console.log('chat id: ' + id + '   (' + chats[id] + ')'));
+  if (!ids.length) { console.log('Сообщений боту @' + me.result.username + ' пока нет. Напишите ему и запустите функцию ещё раз.'); return; }
+  ids.forEach(id => console.log('chat id: ' + id + '   (' + chats[id] + ')  ← вставьте это число в TELEGRAM_CHAT_ID'));
 }
 
 /** Создаёт тестовую заявку: проверяет таблицу и уведомления */
