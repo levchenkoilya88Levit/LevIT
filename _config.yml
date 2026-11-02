@@ -26,6 +26,7 @@ defaults:
     values: { layout: default }
 
 exclude:
+  - integrations
   - README.md
   - Gemfile
   - Gemfile.lock
