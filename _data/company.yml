@@ -19,4 +19,4 @@ facts:
 # Куди надсилаються заявки з форм. Посилання на веб-застосунок Google Apps Script
 # (https://script.google.com/macros/s/.../exec) — див. integrations/google-sheets/ИНСТРУКЦИЯ.md
 # Порожньо — форма відкриває поштову програму з готовим листом.
-form_endpoint: ""
+form_endpoint: "https://script.google.com/macros/s/AKfycbw2R2uJjaNAnZbkRP149cw2qB7WSGQbtCl5edJxbA4qN5wvKnrRiupA8DihKbNrfgO73w/exec"
