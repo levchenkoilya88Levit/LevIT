@@ -70,12 +70,20 @@
       if (CFG.endpoint) {
         submit.disabled = true; submit.textContent = 'Надсилаємо…';
         try {
-          const r = await fetch(CFG.endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(data) });
+          // Google Apps Script приймає text/plain без CORS-preflight; інші сервіси (Formspree) — JSON
+          const gas = CFG.endpoint.includes('script.google.com');
+          const r = await fetch(CFG.endpoint, {
+            method: 'POST',
+            headers: gas ? { 'Content-Type': 'text/plain;charset=utf-8' } : { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify(data),
+          });
           if (!r.ok) throw 0;
+          if (gas) { const res = await r.json(); if (!res.ok) throw 0; }
           box.classList.add('sent');
+          form.reset();
         } catch {
           submit.disabled = false; submit.textContent = label;
-          alert('Заявку не надіслано через збій з’єднання. Спробуйте ще раз або зателефонуйте: ' + CFG.phone);
+          alert('Заявку не надіслано через збій з’єднання. Спробуйте ще раз або напишіть нам: ' + CFG.phone + ', Telegram @' + (CFG.telegram || ''));
         }
       } else {
         const names = { type: 'Тип', page: 'Сторінка', format: 'Формат', name: 'Ім’я', phone: 'Телефон', company: 'Компанія', role: 'Посада', message: 'Задача' };

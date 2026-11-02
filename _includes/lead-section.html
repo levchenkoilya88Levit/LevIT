@@ -7,6 +7,7 @@
       <form class="lead-form" data-kind="{{ kind }}" novalidate>
         <h2>{{ page.form_title | default: "Залишити заявку" }}</h2>
         <p>{{ page.form_text | default: "Зв’яжемося з вами, обговоримо задачі та розрахуємо вартість робіт." }}</p>
+        <div class="hp" aria-hidden="true"><label>Website <input name="website" tabindex="-1" autocomplete="off"></label></div>
         <div class="fmt" role="radiogroup" aria-label="Формат знайомства">
           <label><input type="radio" name="format" value="Онлайн-зустріч 15 хв" checked><span><b>Онлайн-зустріч</b><span>15 хвилин, Zoom або Google Meet</span></span></label>
           <label><input type="radio" name="format" value="Дзвінок"><span><b>Дзвінок</b><span>Передзвонимо й розрахуємо вартість</span></span></label>

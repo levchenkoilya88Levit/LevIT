@@ -497,3 +497,6 @@ footer a:hover{color:#fff;text-decoration:underline}
   .hero::before{background:rgba(20,23,27,.88)}
   .hero .facts div,.hero .facts div + div{border-bottom-color:rgba(255,255,255,.18)}
 }
+
+/* приховане поле-пастка для ботів */
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}

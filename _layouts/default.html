@@ -37,7 +37,7 @@
 
 {% include footer.html %}
 
-<script>window.LEVIT = {endpoint: {{ c.form_endpoint | jsonify }}, email: {{ c.email | jsonify }}, phone: {{ c.phone | jsonify }}};</script>
+<script>window.LEVIT = {endpoint: {{ c.form_endpoint | jsonify }}, email: {{ c.email | jsonify }}, phone: {{ c.phone | jsonify }}, telegram: {{ c.telegram | jsonify }}};</script>
 <script src="/assets/js/main.js?v={{ site.time | date: '%s' }}" defer></script>
 </body>
 </html>
