@@ -10,7 +10,7 @@
 | Наши услуги (обзор) | `/poslugy/` | `poslugy/index.html` |
 | └ Готовые решения (каталог) | `/poslugy/gotovi-rishennya/` | категории — `_data/solution_categories.yml` |
 | &nbsp;&nbsp;&nbsp;└ Страница решения | `/poslugy/gotovi-rishennya/<файл>/` | `_solutions/<файл>.md` |
-| └ Сопровождение BAS (1С) | `/poslugy/suprovid-bas/` | направления — `_data/support_services.yml`, остальное — `poslugy/suprovid-bas/index.html` |
+| └ Сопровождение BAS | `/poslugy/suprovid-bas/` | направления — `_data/support_services.yml`, остальное — `poslugy/suprovid-bas/index.html` |
 | Серверы | `/servery/` | `_data/servers.yml` (партнёр, услуги, тарифы) |
 | Кейсы | `/keisy/` | `_cases/*.md` |
 | Отзывы | `/vidguky/` | `_data/reviews.yml` |

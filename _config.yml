@@ -1,6 +1,6 @@
 # Налаштування сайту LevIT (Jekyll, збирається GitHub Pages автоматично)
 title: LevIT
-description: Супровід, доробка, інтеграції та аудит BAS (1С) для українського бізнесу.
+description: Супровід, доробка, інтеграції та аудит BAS для українського бізнесу.
 url: https://levit.com.ua
 baseurl: ""
 lang: uk
