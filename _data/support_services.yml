@@ -1,4 +1,4 @@
-# Напрями супроводу BAS (1С). Кожен показується блоком на сторінці /poslugy/suprovid-bas/
+# Напрями супроводу BAS. Кожен показується блоком на сторінці /poslugy/suprovid-bas/
 # id — якір (посилання #id), points — список того, що входить.
 - id: obsluhovuvannia
   icon: shield
