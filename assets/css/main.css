@@ -36,6 +36,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:20px}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
 .brand img{height:36px;width:auto}
+.brand .brand-logo{height:44px}
 .brand span{font-weight:500;font-size:23px;color:var(--gray)}
 .nav-links{display:flex;gap:28px;list-style:none;margin:0;padding:0}
 .nav-links a{text-decoration:none;font-weight:500;color:var(--ink-2);font-size:15px}
@@ -437,8 +438,9 @@ footer a{color:#C3C7CC;text-decoration:none}
 footer a:hover{color:#fff;text-decoration:underline}
 .foot-top{display:grid;grid-template-columns:1.1fr 1.2fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid #3A3F45}
 .foot-brand .brand{margin-bottom:16px}
-.foot-brand .brand img{background:#fff;border-radius:6px;padding:4px;height:40px;width:auto}
-.foot-brand .brand span{color:#fff}
+.foot-brand .brand img{height:40px;width:40px;border-radius:9px}
+.foot-brand .brand span{color:#fff;font-weight:700;font-size:24px;letter-spacing:-.01em}
+.foot-brand .brand span b{color:var(--yellow)}
 .foot-brand p{margin-bottom:22px;max-width:28ch}
 .foot-brand .btn{color:var(--ink)}
 .foot-brand .btn:hover{color:var(--ink);text-decoration:none}
