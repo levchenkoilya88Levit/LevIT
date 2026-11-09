@@ -66,7 +66,7 @@
         if (!good && ok) { inp.focus(); ok = false; }
       });
       if (!ok) return;
-      const data = Object.assign({ type: form.dataset.kind, page: location.pathname }, Object.fromEntries(new FormData(form)));
+      const data = Object.assign({ type: (CFG.env === 'dev' ? '[ТЕСТ] ' : '') + form.dataset.kind, page: location.pathname }, Object.fromEntries(new FormData(form)));
       if (CFG.endpoint) {
         submit.disabled = true; submit.textContent = 'Надсилаємо…';
         try {

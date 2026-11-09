@@ -16,7 +16,7 @@ form_class: alt
       <p class="hero-sub">Беремо облікову систему на повний супровід: швидко вирішуємо термінові питання, доопрацьовуємо під ваші процеси та впроваджуємо зміни без ризику для робочої бази.</p>
       <div class="hero-cta">
         <a class="btn btn-main" href="#zayavka">Записатися на 15-хвилинну зустріч</a>
-        <a class="btn btn-line" href="/poslugy/">Наші послуги</a>
+        <a class="btn btn-line" href="{{ site.baseurl }}/poslugy/">Наші послуги</a>
       </div>
       <div class="facts">
         {%- for f in c.facts %}<div><b>{{ f.value }}</b><span>{{ f.label }}</span></div>{% endfor %}
@@ -45,21 +45,21 @@ form_class: alt
       <p>Три напрями, з яких складається стабільна облікова система: готові модулі, постійний супровід і надійна інфраструктура.</p>
     </div>
     <div class="dir-grid">
-      <a class="dir" href="/poslugy/gotovi-rishennya/">
+      <a class="dir" href="{{ site.baseurl }}/poslugy/gotovi-rishennya/">
         {% include icon.html name="box" %}
         <h3>Готові рішення</h3>
         <p>Перевірені обміни та модулі: маркетплейси, CRM, банки, доставка. Відомий обсяг і швидкий запуск.</p>
         <span class="dir-meta">{{ sols.size }} рішень у каталозі</span>
         <span class="dir-more">До каталогу →</span>
       </a>
-      <a class="dir" href="/poslugy/suprovid-bas/">
+      <a class="dir" href="{{ site.baseurl }}/poslugy/suprovid-bas/">
         {% include icon.html name="headset" %}
         <h3>Супровід BAS</h3>
         <p>Обслуговування, доробки, аудит, підтримка користувачів і контроль оновлень. Разово або за абонементом.</p>
         <span class="dir-meta">від 1 000 грн / година</span>
         <span class="dir-more">Детальніше →</span>
       </a>
-      <a class="dir" href="/servery/">
+      <a class="dir" href="{{ site.baseurl }}/servery/">
         {% include icon.html name="server" %}
         <h3>Сервери</h3>
         <p>Оренда й адміністрування серверів під BAS, резервне копіювання та віддалений доступ разом із партнером.</p>
@@ -80,7 +80,7 @@ form_class: alt
     <div class="cat-row">
       {%- for cat in site.data.solution_categories %}
       {%- assign in_cat = sols | where: "category", cat.id %}
-      <a class="cat-tile" href="/poslugy/gotovi-rishennya/#{{ cat.id }}">
+      <a class="cat-tile" href="{{ site.baseurl }}/poslugy/gotovi-rishennya/#{{ cat.id }}">
         {% include icon.html name=cat.icon %}
         <b>{{ cat.title }}</b>
         <span>{% for s in in_cat limit: 4 %}{{ s.title | remove: "Обмін з " }}{% unless forloop.last %}, {% endunless %}{% endfor %}</span>
@@ -89,7 +89,7 @@ form_class: alt
     </div>
     <div class="sol-foot">
       <p>Не знайшли потрібний сервіс? Більшість інтеграцій робимо під задачу — розкажіть, що потрібно підключити.</p>
-      <a class="btn btn-main" href="/poslugy/gotovi-rishennya/">Усі готові рішення</a>
+      <a class="btn btn-main" href="{{ site.baseurl }}/poslugy/gotovi-rishennya/">Усі готові рішення</a>
     </div>
   </div>
 </section>
@@ -139,7 +139,7 @@ form_class: alt
       <div class="contour"><span class="tag">Test</span><h3>Тестування</h3><p>Перевіряємо нове на реальних сценаріях і контролюємо, щоб не зачепити інші механізми.</p></div>
       <div class="contour"><span class="tag">Prod</span><h3>Робоча база</h3><p>Переносимо тільки перевірені зміни. Кожну можна відстежити й за потреби відкотити.</p></div>
     </div>
-    <p><a class="link" href="/poslugy/suprovid-bas/#standarty">Усі стандарти розробки →</a></p>
+    <p><a class="link" href="{{ site.baseurl }}/poslugy/suprovid-bas/#standarty">Усі стандарти розробки →</a></p>
   </div>
 </section>
 
@@ -149,7 +149,7 @@ form_class: alt
   <div class="wrap">
     <div class="sec-head">
       <h2>Кейси</h2>
-      <p><a class="link" href="/keisy/">Усі кейси →</a></p>
+      <p><a class="link" href="{{ site.baseurl }}/keisy/">Усі кейси →</a></p>
     </div>
     <div class="case-grid">
       {%- for k in cases limit: 3 %}{% include case-card.html k=k %}{% endfor %}
@@ -164,7 +164,7 @@ form_class: alt
   <div class="wrap">
     <div class="sec-head">
       <h2>Відгуки клієнтів</h2>
-      <p><a class="link" href="/vidguky/">Усі відгуки →</a></p>
+      <p><a class="link" href="{{ site.baseurl }}/vidguky/">Усі відгуки →</a></p>
     </div>
     <div class="rev-grid">
       {%- for r in site.data.reviews limit: 3 %}{% include review-card.html r=r %}{% endfor %}

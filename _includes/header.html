@@ -2,8 +2,8 @@
 {%- assign sols = site.solutions | sort: "order" -%}
 <header id="top">
   <div class="wrap nav">
-    <a class="brand" href="/" aria-label="LevIT, головна">
-      <img class="brand-logo" src="/assets/img/logo-levit.png" alt="LevIT" width="126" height="44">
+    <a class="brand" href="{{ site.baseurl }}/" aria-label="LevIT, головна">
+      <img class="brand-logo" src="{{ site.baseurl }}/assets/img/logo-levit.png" alt="LevIT" width="126" height="44">
     </a>
     <nav aria-label="Головне меню">
       <ul class="nav-links">
@@ -12,31 +12,31 @@
           <div class="mega" id="mega">
             <div class="wrap mega-grid">
               <div class="mega-col">
-                <a class="mega-head" href="/poslugy/gotovi-rishennya/">{% include icon.html name="box" %}<span><b>Готові рішення</b><small>Модулі та обміни з відомим обсягом і ціною</small></span></a>
+                <a class="mega-head" href="{{ site.baseurl }}/poslugy/gotovi-rishennya/">{% include icon.html name="box" %}<span><b>Готові рішення</b><small>Модулі та обміни з відомим обсягом і ціною</small></span></a>
                 <ul>
                   {%- for cat in site.data.solution_categories %}
-                  <li><a href="/poslugy/gotovi-rishennya/#{{ cat.id }}">{{ cat.title }}</a></li>
+                  <li><a href="{{ site.baseurl }}/poslugy/gotovi-rishennya/#{{ cat.id }}">{{ cat.title }}</a></li>
                   {%- endfor %}
                 </ul>
-                <a class="mega-all" href="/poslugy/gotovi-rishennya/">Усі готові рішення →</a>
+                <a class="mega-all" href="{{ site.baseurl }}/poslugy/gotovi-rishennya/">Усі готові рішення →</a>
               </div>
               <div class="mega-col">
-                <a class="mega-head" href="/poslugy/suprovid-bas/">{% include icon.html name="headset" %}<span><b>Супровід BAS</b><small>Обслуговування, доробки та підтримка за годинами</small></span></a>
+                <a class="mega-head" href="{{ site.baseurl }}/poslugy/suprovid-bas/">{% include icon.html name="headset" %}<span><b>Супровід BAS</b><small>Обслуговування, доробки та підтримка за годинами</small></span></a>
                 <ul class="two">
                   {%- for s in site.data.support_services %}
-                  <li><a href="/poslugy/suprovid-bas/#{{ s.id }}">{{ s.title }}</a></li>
+                  <li><a href="{{ site.baseurl }}/poslugy/suprovid-bas/#{{ s.id }}">{{ s.title }}</a></li>
                   {%- endfor %}
                 </ul>
-                <a class="mega-all" href="/poslugy/suprovid-bas/#tsiny">Ціни та абонементи →</a>
+                <a class="mega-all" href="{{ site.baseurl }}/poslugy/suprovid-bas/#tsiny">Ціни та абонементи →</a>
               </div>
             </div>
           </div>
         </li>
-        <li><a href="/servery/"{% if page.section == 'servers' %} class="on"{% endif %}>Сервери</a></li>
-        <li><a href="/keisy/"{% if page.section == 'cases' %} class="on"{% endif %}>Кейси</a></li>
-        <li><a href="/vidguky/"{% if page.section == 'reviews' %} class="on"{% endif %}>Відгуки</a></li>
-        <li><a href="/pro-kompaniyu/"{% if page.section == 'about' %} class="on"{% endif %}>Про компанію</a></li>
-        <li><a href="/kontakty/"{% if page.section == 'contacts' %} class="on"{% endif %}>Контакти</a></li>
+        <li><a href="{{ site.baseurl }}/servery/"{% if page.section == 'servers' %} class="on"{% endif %}>Сервери</a></li>
+        <li><a href="{{ site.baseurl }}/keisy/"{% if page.section == 'cases' %} class="on"{% endif %}>Кейси</a></li>
+        <li><a href="{{ site.baseurl }}/vidguky/"{% if page.section == 'reviews' %} class="on"{% endif %}>Відгуки</a></li>
+        <li><a href="{{ site.baseurl }}/pro-kompaniyu/"{% if page.section == 'about' %} class="on"{% endif %}>Про компанію</a></li>
+        <li><a href="{{ site.baseurl }}/kontakty/"{% if page.section == 'contacts' %} class="on"{% endif %}>Контакти</a></li>
       </ul>
     </nav>
     <div class="nav-right">
@@ -48,15 +48,15 @@
   <nav class="mobile-menu" id="mmenu" aria-label="Мобільне меню">
     <details>
       <summary>Наші послуги</summary>
-      <a href="/poslugy/">Огляд послуг</a>
-      <a href="/poslugy/gotovi-rishennya/">Готові рішення</a>
-      <a href="/poslugy/suprovid-bas/">Супровід BAS</a>
+      <a href="{{ site.baseurl }}/poslugy/">Огляд послуг</a>
+      <a href="{{ site.baseurl }}/poslugy/gotovi-rishennya/">Готові рішення</a>
+      <a href="{{ site.baseurl }}/poslugy/suprovid-bas/">Супровід BAS</a>
     </details>
-    <a href="/servery/">Сервери</a>
-    <a href="/keisy/">Кейси</a>
-    <a href="/vidguky/">Відгуки</a>
-    <a href="/pro-kompaniyu/">Про компанію</a>
-    <a href="/kontakty/">Контакти</a>
+    <a href="{{ site.baseurl }}/servery/">Сервери</a>
+    <a href="{{ site.baseurl }}/keisy/">Кейси</a>
+    <a href="{{ site.baseurl }}/vidguky/">Відгуки</a>
+    <a href="{{ site.baseurl }}/pro-kompaniyu/">Про компанію</a>
+    <a href="{{ site.baseurl }}/kontakty/">Контакти</a>
     <a href="tel:{{ c.phone_link }}">{{ c.phone }}</a>
   </nav>
 </header>

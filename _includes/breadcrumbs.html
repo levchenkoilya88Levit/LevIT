@@ -1,7 +1,7 @@
 {%- if page.crumbs -%}
 <nav class="crumbs" aria-label="Навігація">
-  <a href="/">Головна</a>
-  {%- for c in page.crumbs %}<span>/</span><a href="{{ c.url }}">{{ c.title }}</a>{% endfor %}
+  <a href="{{ site.baseurl }}/">Головна</a>
+  {%- for c in page.crumbs %}<span>/</span><a href="{{ c.url | relative_url }}">{{ c.title }}</a>{% endfor %}
   <span>/</span><b>{{ page.crumb | default: page.title }}</b>
 </nav>
 {%- endif -%}

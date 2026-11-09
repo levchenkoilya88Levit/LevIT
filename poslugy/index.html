@@ -31,9 +31,9 @@ form_class: alt
           <li>Супровід після запуску</li>
         </ul>
         <div class="big-dir-cats">
-          {%- for cat in site.data.solution_categories %}<a href="/poslugy/gotovi-rishennya/#{{ cat.id }}">{{ cat.short }}</a>{% endfor %}
+          {%- for cat in site.data.solution_categories %}<a href="{{ site.baseurl }}/poslugy/gotovi-rishennya/#{{ cat.id }}">{{ cat.short }}</a>{% endfor %}
         </div>
-        <a class="btn btn-main" href="/poslugy/gotovi-rishennya/">Каталог рішень ({{ sols.size }})</a>
+        <a class="btn btn-main" href="{{ site.baseurl }}/poslugy/gotovi-rishennya/">Каталог рішень ({{ sols.size }})</a>
       </div>
       <div class="big-dir">
         <div class="big-dir-head">{% include icon.html name="headset" %}<span class="pill">Погодинно / абонемент</span></div>
@@ -45,9 +45,9 @@ form_class: alt
           <li>Абонемент від 1 000 грн за годину</li>
         </ul>
         <div class="big-dir-cats">
-          {%- for s in site.data.support_services limit: 5 %}<a href="/poslugy/suprovid-bas/#{{ s.id }}">{{ s.title }}</a>{% endfor %}
+          {%- for s in site.data.support_services limit: 5 %}<a href="{{ site.baseurl }}/poslugy/suprovid-bas/#{{ s.id }}">{{ s.title }}</a>{% endfor %}
         </div>
-        <a class="btn btn-main" href="/poslugy/suprovid-bas/">Про супровід і ціни</a>
+        <a class="btn btn-main" href="{{ site.baseurl }}/poslugy/suprovid-bas/">Про супровід і ціни</a>
       </div>
     </div>
   </div>
@@ -75,7 +75,7 @@ form_class: alt
 
 <section>
   <div class="wrap">
-    <a class="servers-band" href="/servery/">
+    <a class="servers-band" href="{{ site.baseurl }}/servery/">
       {% include icon.html name="server" %}
       <span><b>Сервери для BAS</b><small>Оренда, адміністрування, резервне копіювання та віддалений доступ разом із партнером.</small></span>
       <span class="s-more">Детальніше →</span>

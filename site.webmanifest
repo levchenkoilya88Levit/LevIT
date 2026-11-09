@@ -2,8 +2,8 @@
   "name": "LevIT — обслуговування та розробка BAS",
   "short_name": "LevIT",
   "icons": [
-    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
-    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" }
   ],
   "theme_color": "#3E434B",
   "background_color": "#FFFFFF",

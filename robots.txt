@@ -3,6 +3,6 @@ layout: null
 permalink: /robots.txt
 ---
 User-agent: *
-Allow: /
+{% if site.env == "dev" %}Disallow: /{% else %}Allow: /{% endif %}
 
-Sitemap: {{ site.url }}/sitemap.xml
+Sitemap: {{ '/sitemap.xml' | absolute_url }}

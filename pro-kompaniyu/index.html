@@ -33,7 +33,7 @@ form_class: alt
       <p>Супровід і доробка BAS, інтеграції з маркетплейсами, банками, CRM і службами доставки, аудит конфігурацій, перехід з 1С на BAS, робота з ТЗД. Разом із партнером — сервери для облікових систем.</p>
     </div>
     <aside class="about-card">
-      <img src="/assets/img/logo-levit.png" alt="LevIT" width="206" height="72">
+      <img src="{{ site.baseurl }}/assets/img/logo-levit.png" alt="LevIT" width="206" height="72">
       <h3>{{ c.name }}</h3>
       <p>{{ c.tagline }}</p>
       <dl class="case-dl">
@@ -63,7 +63,7 @@ form_class: alt
     <div class="team-grid">
       {%- for m in site.data.team %}
       <div class="member">
-        {%- if m.photo %}<img src="{{ m.photo }}" alt="{{ m.name }}" loading="lazy">{% else %}<span class="rev-av big" aria-hidden="true">{{ m.name | slice: 0, 1 }}</span>{% endif %}
+        {%- if m.photo %}<img src="{{ m.photo | relative_url }}" alt="{{ m.name }}" loading="lazy">{% else %}<span class="rev-av big" aria-hidden="true">{{ m.name | slice: 0, 1 }}</span>{% endif %}
         <b>{{ m.name }}</b><small>{{ m.role }}</small>{% if m.text %}<p>{{ m.text }}</p>{% endif %}
       </div>
       {%- endfor %}
@@ -83,6 +83,6 @@ form_class: alt
       <div class="adv"><h3>Безпечні зміни</h3><p>Контури Dev, Test і Prod: у робочу базу потрапляє лише перевірене.</p></div>
       <div class="adv"><h3>Прозорий бюджет</h3><p>Оцінка до початку робіт, відкриті ціни на годину та абонементи.</p></div>
     </div>
-    <div class="hero-cta"><a class="btn btn-line" href="/keisy/">Наші кейси</a><a class="btn btn-line" href="/vidguky/">Відгуки клієнтів</a></div>
+    <div class="hero-cta"><a class="btn btn-line" href="{{ site.baseurl }}/keisy/">Наші кейси</a><a class="btn btn-line" href="{{ site.baseurl }}/vidguky/">Відгуки клієнтів</a></div>
   </div>
 </section>

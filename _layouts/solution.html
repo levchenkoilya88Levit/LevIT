@@ -7,18 +7,18 @@ layout: default
   <div class="wrap sol-hero-grid">
     <div>
       <nav class="crumbs" aria-label="Навігація">
-        <a href="/">Головна</a><span>/</span><a href="/poslugy/">Наші послуги</a><span>/</span><a href="/poslugy/gotovi-rishennya/">Готові рішення</a><span>/</span><b>{{ page.title }}</b>
+        <a href="{{ site.baseurl }}/">Головна</a><span>/</span><a href="{{ site.baseurl }}/poslugy/">Наші послуги</a><span>/</span><a href="{{ site.baseurl }}/poslugy/gotovi-rishennya/">Готові рішення</a><span>/</span><b>{{ page.title }}</b>
       </nav>
-      {%- if cat %}<p class="hero-label"><a href="/poslugy/gotovi-rishennya/#{{ cat.id }}">{{ cat.title }}</a></p>{% endif %}
+      {%- if cat %}<p class="hero-label"><a href="{{ site.baseurl }}/poslugy/gotovi-rishennya/#{{ cat.id }}">{{ cat.title }}</a></p>{% endif %}
       <h1>{{ page.h1 | default: page.title }}</h1>
       <p class="hero-sub">{{ page.summary }}</p>
       <div class="hero-cta">
         <a class="btn btn-main" href="#zayavka">Дізнатися вартість під мою базу</a>
-        <a class="btn btn-line" href="/poslugy/gotovi-rishennya/">Усі готові рішення</a>
+        <a class="btn btn-line" href="{{ site.baseurl }}/poslugy/gotovi-rishennya/">Усі готові рішення</a>
       </div>
     </div>
     <aside class="sol-meta">
-      <span class="s-logo big" aria-hidden="true">{% if page.logo and page.logo != "" %}<img src="{{ page.logo }}" alt="">{% else %}{% if page.short and page.short != "" %}{{ page.short }}{% else %}{{ page.title | slice: 0, 2 }}{% endif %}{% endif %}</span>
+      <span class="s-logo big" aria-hidden="true">{% if page.logo and page.logo != "" %}<img src="{{ page.logo | relative_url }}" alt="">{% else %}{% if page.short and page.short != "" %}{{ page.short }}{% else %}{{ page.title | slice: 0, 2 }}{% endif %}{% endif %}</span>
       <dl>
         <div><dt>Орієнтовна вартість</dt><dd>{{ page.price | default: "за запитом" }}</dd></div>
         {%- if page.term and page.term != "" %}<div><dt>Термін запуску</dt><dd>{{ page.term }}</dd></div>{% endif %}
@@ -65,7 +65,7 @@ layout: default
   <div class="wrap">
     <div class="sec-head">
       <h2>Схожі рішення</h2>
-      <p><a class="link" href="/poslugy/gotovi-rishennya/">Усі готові рішення →</a></p>
+      <p><a class="link" href="{{ site.baseurl }}/poslugy/gotovi-rishennya/">Усі готові рішення →</a></p>
     </div>
     <div class="s-grid">
       {%- for s in related %}{% if s.url != page.url and shown < 3 %}{% assign shown = shown | plus: 1 %}{% include solution-card.html s=s %}{% endif %}{% endfor %}

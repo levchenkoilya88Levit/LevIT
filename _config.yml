@@ -4,6 +4,7 @@ description: Супровід, доробка, інтеграції та ауд�
 url: https://levit.com.ua
 baseurl: ""
 lang: uk
+env: prod          # prod — рабочий сайт; в тестовом репозитории LevIT_test здесь dev
 
 markdown: kramdown
 kramdown:

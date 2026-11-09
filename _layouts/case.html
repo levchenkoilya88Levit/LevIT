@@ -4,7 +4,7 @@ layout: default
 <section class="page-hero">
   <div class="wrap">
     <nav class="crumbs" aria-label="Навігація">
-      <a href="/">Головна</a><span>/</span><a href="/keisy/">Кейси</a><span>/</span><b>{{ page.title }}</b>
+      <a href="{{ site.baseurl }}/">Головна</a><span>/</span><a href="{{ site.baseurl }}/keisy/">Кейси</a><span>/</span><b>{{ page.title }}</b>
     </nav>
     <p class="hero-label">{{ page.client }}{% if page.industry %} · {{ page.industry }}{% endif %}</p>
     <h1>{{ page.title }}</h1>
@@ -33,7 +33,7 @@ layout: default
       {%- if page.solutions %}
       <h3 class="mt">Використані рішення</h3>
       <ul class="plain">
-        {%- for slug in page.solutions %}{% assign s = site.solutions | where_exp: "x", "x.url contains slug" | first %}{% if s %}<li><a href="{{ s.url }}">{{ s.title }}</a></li>{% endif %}{% endfor %}
+        {%- for slug in page.solutions %}{% assign s = site.solutions | where_exp: "x", "x.url contains slug" | first %}{% if s %}<li><a href="{{ s.url | relative_url }}">{{ s.title }}</a></li>{% endif %}{% endfor %}
       </ul>
       {%- endif %}
     </aside>

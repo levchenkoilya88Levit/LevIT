@@ -1,6 +1,6 @@
 {%- assign s = include.s -%}
-<a class="s-card" href="{{ s.url }}" data-cat="{{ s.category }}">
-  <span class="s-logo" aria-hidden="true">{% if s.logo and s.logo != "" %}<img src="{{ s.logo }}" alt="">{% else %}{% if s.short and s.short != "" %}{{ s.short }}{% else %}{{ s.title | slice: 0, 2 }}{% endif %}{% endif %}</span>
+<a class="s-card" href="{{ s.url | relative_url }}" data-cat="{{ s.category }}">
+  <span class="s-logo" aria-hidden="true">{% if s.logo and s.logo != "" %}<img src="{{ s.logo | relative_url }}" alt="">{% else %}{% if s.short and s.short != "" %}{{ s.short }}{% else %}{{ s.title | slice: 0, 2 }}{% endif %}{% endif %}</span>
   <b>{{ s.title }}</b>
   <span class="s-sum">{{ s.summary }}</span>
   <span class="s-foot"><span class="s-price">{{ s.price | default: "за запитом" }}</span><span class="s-more">Детальніше →</span></span>

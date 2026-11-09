@@ -2,7 +2,7 @@
 <figure class="rev">
   <blockquote>{{ r.text }}</blockquote>
   <figcaption>
-    {%- if r.photo %}<img src="{{ r.photo }}" alt="" width="48" height="48" loading="lazy">{% else %}<span class="rev-av" aria-hidden="true">{{ r.name | slice: 0, 1 }}</span>{% endif %}
+    {%- if r.photo %}<img src="{{ r.photo | relative_url }}" alt="" width="48" height="48" loading="lazy">{% else %}<span class="rev-av" aria-hidden="true">{{ r.name | slice: 0, 1 }}</span>{% endif %}
     <span><b>{{ r.name }}</b><small>{{ r.role }}{% if r.company %}, {{ r.company }}{% endif %}</small>{% if r.link %}<a href="{{ r.link }}" target="_blank" rel="noopener">Оригінал відгуку</a>{% endif %}</span>
   </figcaption>
 </figure>

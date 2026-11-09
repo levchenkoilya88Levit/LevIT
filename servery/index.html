@@ -113,7 +113,7 @@ form_text: Розкажіть, скільки користувачів прац�
     </div>
     {%- if d.partner.name != "" %}
     <div class="partner">
-      {%- if d.partner.logo != "" %}<img src="{{ d.partner.logo }}" alt="{{ d.partner.name }}" height="40">{% endif %}
+      {%- if d.partner.logo != "" %}<img src="{{ d.partner.logo | relative_url }}" alt="{{ d.partner.name }}" height="40">{% endif %}
       <p><b>{{ d.partner.name }}</b>{% if d.partner.text != "" %} — {{ d.partner.text }}{% endif %}</p>
       {%- if d.partner.link != "" %}<a class="link" href="{{ d.partner.link }}" target="_blank" rel="noopener">Сайт партнера →</a>{% endif %}
     </div>
