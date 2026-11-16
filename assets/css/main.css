@@ -503,3 +503,6 @@ footer a:hover{color:#fff;text-decoration:underline}
 .dev-banner{position:sticky;top:0;z-index:60;background:#B3261E;color:#fff;text-align:center;font-size:13px;font-weight:600;padding:6px 12px;letter-spacing:.02em}
 .dev-banner + header{top:31px}
 .dev-banner ~ header .mobile-menu{top:calc(103px + env(safe-area-inset-top,0px))}
+
+/* роздільник «Телефон: …» — лише для пошукових систем і скрінрідерів */
+.c-item .sep{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}

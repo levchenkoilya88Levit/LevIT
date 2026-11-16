@@ -26,13 +26,13 @@
       </form>
       <div class="done" role="status"><h3>Дякуємо, заявку отримано</h3><p>Зв’яжемося з вами найближчим часом. Термінове питання? <a href="tel:{{ c.phone_link }}"><b>{{ c.phone }}</b></a></p></div>
     </div>
-    <div class="contacts">
+    <div class="contacts" data-nosnippet>
       <h3>Контакти</h3>
-      <a class="c-item" href="tel:{{ c.phone_link }}"><small>Телефон</small><b>{{ c.phone }}</b></a>
-      <a class="c-item" href="https://t.me/{{ c.telegram }}" target="_blank" rel="noopener"><small>Telegram</small><b>@{{ c.telegram }}</b></a>
-      <a class="c-item" href="mailto:{{ c.email }}"><small>Email</small><b>{{ c.email }}</b></a>
-      <a class="c-item" href="{{ c.map_link }}" target="_blank" rel="noopener"><small>Адреса</small><b>{{ c.address }}</b></a>
-      {%- if c.hours != "" %}<div class="c-item"><small>Графік</small><b>{{ c.hours }}</b></div>{% endif %}
+      <a class="c-item" href="tel:{{ c.phone_link }}"><small>Телефон<span class="sep">:</span></small> <b>{{ c.phone }}</b></a>
+      <a class="c-item" href="https://t.me/{{ c.telegram }}" target="_blank" rel="noopener"><small>Telegram<span class="sep">:</span></small> <b>@{{ c.telegram }}</b></a>
+      <a class="c-item" href="mailto:{{ c.email }}"><small>Email<span class="sep">:</span></small> <b>{{ c.email }}</b></a>
+      <a class="c-item" href="{{ c.map_link }}" target="_blank" rel="noopener"><small>Адреса<span class="sep">:</span></small> <b>{{ c.address }}</b></a>
+      {%- if c.hours != "" %}<div class="c-item"><small>Графік<span class="sep">:</span></small> <b>{{ c.hours }}</b></div>{% endif %}
     </div>
   </div>
 </section>

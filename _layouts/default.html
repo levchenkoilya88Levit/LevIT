@@ -18,8 +18,13 @@
 <meta property="og:image" content="{{ '/assets/img/og-image.png' | absolute_url }}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+{%- assign empty_page = false -%}
+{%- if page.noindex_if_empty == "reviews" and site.data.reviews.size == 0 %}{% assign empty_page = true %}{% endif -%}
+{%- if page.noindex_if_empty == "cases" and site.cases.size == 0 %}{% assign empty_page = true %}{% endif -%}
 {%- if site.env == "dev" %}
 <meta name="robots" content="noindex, nofollow">
+{%- elsif empty_page %}
+<meta name="robots" content="noindex, follow">
 {%- endif %}
 <meta name="theme-color" content="#FFFFFF">
 <meta name="color-scheme" content="light">

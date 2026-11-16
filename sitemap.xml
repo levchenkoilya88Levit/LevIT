@@ -6,6 +6,8 @@ permalink: /sitemap.xml
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 {%- assign pages = site.html_pages | where_exp: "p", "p.url != '/404.html'" %}
 {%- for p in pages %}
+{%- if p.noindex_if_empty == "reviews" and site.data.reviews.size == 0 %}{% continue %}{% endif %}
+{%- if p.noindex_if_empty == "cases" and site.cases.size == 0 %}{% continue %}{% endif %}
   <url><loc>{{ p.url | replace: 'index.html', '' | absolute_url }}</loc><lastmod>{{ site.time | date_to_xmlschema }}</lastmod></url>
 {%- endfor %}
 {%- for p in site.solutions %}
